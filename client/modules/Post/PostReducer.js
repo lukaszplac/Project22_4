@@ -1,4 +1,4 @@
-import { ADD_POST, ADD_POSTS, DELETE_POST } from './PostActions';
+import { ADD_POST, ADD_POSTS, DELETE_POST, EDIT_POST, LIKES_UP, LIKES_DOWN } from './PostActions';
 
 // Initial State
 const initialState = { data: [] };
@@ -18,6 +18,23 @@ const PostReducer = (state = initialState, action) => {
     case DELETE_POST :
       return {
         data: state.data.filter(post => post.cuid !== action.cuid),
+      };
+    case EDIT_POST :
+      return {
+        data: state.data.map(post => { return post.cuid === action.cuid ? Object.assign({}, post, action.post) : post }),
+      };
+    case LIKES_UP :
+      var newPost = state.data.filter(post => post.cuid === action.cuid);
+      newPost[0].likes = newPost[0].likes + 1;
+      return { 
+        data: state.data.map(post => { return post.cuid === action.cuid ? Object.assign({}, post, newPost) : post }),
+      };
+
+    case LIKES_DOWN :
+      var newPost = state.data.filter(post => post.cuid === action.cuid);
+      newPost[0].likes = newPost[0].likes - 1;
+      return {
+        data: state.data.map(post => { return post.cuid === action.cuid ? Object.assign({}, post, newPost) : post }),
       };
 
     default:
