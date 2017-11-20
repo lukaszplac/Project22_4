@@ -11,7 +11,7 @@ const Navi = (props) => (
 	          		<span className={styles.navip}>Posts</span>
 	        	</Link>
 	        	<Link to={`/about`} >
-	          		<span className={styles.navip}>Posts</span>
+	          		<span className={styles.navip}>About</span>
 	        	</Link>
 		</div>
 );
