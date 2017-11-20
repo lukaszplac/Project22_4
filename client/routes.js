@@ -30,7 +30,7 @@ export default (
     <IndexRoute
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
-          cb(null, require('./modules/App/components/Navi/Navi').default);
+          cb(null, require('./modules/Home/Home').default);
         });
       }}
     />

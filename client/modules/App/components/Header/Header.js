@@ -1,9 +1,11 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
+import Navi from '../Navi/Navi';
 
 // Import Style
 import styles from './Header.css';
+import stylesNavi from '../Navi/Navi.css';
 
 export function Header(props, context) {
   const languageNodes = props.intl.enabledLanguages.map(
@@ -27,6 +29,9 @@ export function Header(props, context) {
             ? <a className={styles['add-post-button']} href="#" onClick={props.toggleAddPost}><FormattedMessage id="addPost" /></a>
             : null
         }
+      </div>
+      <div className={stylesNavi.navi}>
+        <Navi />
       </div>
     </div>
   );

@@ -1,23 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router';
+import styles from './Navi.css'
 
 const Navi = (props) => (
 		<div>
-			<p>
 				<Link to={`/home`} >
-	          		Home
+	          		<span className={styles.navip}>Home</span>
 	        	</Link>
-        	</p>
-        	<p>
 	        	<Link to={`/posts`} >
-	          		Posts
+	          		<span className={styles.navip}>Posts</span>
 	        	</Link>
-	        </p>
-	        <p>
 	        	<Link to={`/about`} >
-	          		About
+	          		<span className={styles.navip}>Posts</span>
 	        	</Link>
-        	</p>
 		</div>
 );
 
